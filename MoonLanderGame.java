@@ -32,10 +32,37 @@ public class MoonLanderGame extends Game {
         super.setCellColor(x, y, color);
     }
 
+    @Override
+    public void onKeyPress(Key key) {
+        if (Key.RIGHT == key) {
+            isRightPressed = true;
+            isLeftPressed = false;
+        } else if (Key.LEFT == key) {
+            isLeftPressed = true;
+            isRightPressed = false;
+        } else if (Key.UP == key) {
+            isUpPressed = true;
+        }
+    }
+
+    @Override
+    public void onKeyReleased(Key key) {
+        if (Key.RIGHT == key) {
+            isRightPressed = false;
+        } else if (Key.LEFT == key) {
+            isLeftPressed = false;
+        } else if (Key.UP == key) {
+            isUpPressed = false;
+        }
+    }
+
     private void createGame(){
         setTurnTimer(50);
         createGameObjects();
         drawScene();
+        isUpPressed = false;
+        isLeftPressed = false;
+        isRightPressed = false;
     }
 
     private void drawScene(){

@@ -24,6 +24,19 @@ public class Rocket extends GameObject {
             speedX += boost;
             x += speedX;
         }
-
+        checkBorders();
+    }
+    private void checkBorders() {
+        if (x < 0) {
+            x = 0;
+            speedX = 0;
+        } else if (x + width > MoonLanderGame.WIDTH) {
+            x = MoonLanderGame.WIDTH - width;
+            speedX = 0;
+        }
+        if (y <= 0) {
+            y = 0;
+            speedY = 0;
+        }
     }
 }

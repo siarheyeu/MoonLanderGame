@@ -47,4 +47,14 @@ public class Rocket extends GameObject {
             speedY = 0;
         }
     }
+    private void check() {
+
+    }
+
+    private void win() {
+
+    }
+    private void gameOver() {
+
+    }
 }

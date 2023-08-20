@@ -47,14 +47,28 @@ public class Rocket extends GameObject {
             speedY = 0;
         }
     }
-    private void check() {
 
+    public boolean isStopped() {
+        return speedY < 10 * boost;
     }
 
-    private void win() {
+    public boolean isCollision(GameObject object) {
+        int transparent = Color.NONE.ordinal();
 
-    }
-    private void gameOver() {
+        for (int matrixX = 0; matrixX < width; matrixX++) {
+            for (int matrixY = 0; matrixY < height; matrixY++) {
+                int objectX = matrixX + (int) x - (int) object.x;
+                int objectY = matrixY + (int) y - (int) object.y;
 
+                if (objectX < 0 || objectX >= object.width || objectY < 0 || objectY >= object.height) {
+                    continue;
+                }
+
+                if (matrix[matrixY][matrixX] != transparent && object.matrix[objectY][objectX] != transparent) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

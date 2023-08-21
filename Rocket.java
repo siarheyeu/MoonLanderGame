@@ -1,5 +1,7 @@
 package com.javarush.games.moonlander;
 
+import com.javarush.engine.cell.*;
+
 public class Rocket extends GameObject {
     private double speedY = 0;
     private double speedX = 0;
@@ -70,5 +72,8 @@ public class Rocket extends GameObject {
             }
         }
         return false;
+    }
+    public void land() {
+        y--;
     }
 }

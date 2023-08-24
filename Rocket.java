@@ -9,6 +9,10 @@ public class Rocket extends GameObject {
 
     private double slowdown = boost / 10;
 
+    private RocketFire downFire;
+    private RocketFire leftFire;
+    private RocketFire rightFire;
+
     public Rocket (double x, double y) {
         super(x, y, ShapeMatrix.ROCKET);
     }
@@ -51,6 +55,7 @@ public class Rocket extends GameObject {
     }
 
     public boolean isStopped() {
+
         return speedY < 10 * boost;
     }
 

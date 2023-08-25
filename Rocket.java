@@ -14,7 +14,11 @@ public class Rocket extends GameObject {
     private RocketFire rightFire;
 
     public Rocket (double x, double y) {
+
         super(x, y, ShapeMatrix.ROCKET);
+        downFire = new RocketFire(Arrays.asList(ShapeMatrix.FIRE_DOWN_1, ShapeMatrix.FIRE_DOWN_2, ShapeMatrix.FIRE_DOWN_3));
+        leftFire = new RocketFire(Arrays.asList(ShapeMatrix.FIRE_SIDE_1, ShapeMatrix.FIRE_SIDE_2));
+        rightFire = new RocketFire(Arrays.asList(ShapeMatrix.FIRE_SIDE_1, ShapeMatrix.FIRE_SIDE_2));
     }
 
     public void move(boolean isUpPressed, boolean isLeftPressed, boolean isRightPressed) {
